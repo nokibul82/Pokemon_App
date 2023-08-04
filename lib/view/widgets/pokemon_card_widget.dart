@@ -50,6 +50,11 @@ class PokemonCardWidget extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Row(
+                                      children: pokemon.types!.map((e) {
+                                        return Text("#${e.type.name} ");
+                                      }).toList()),
+                                  const SizedBox(height: 4.0),
                                   Text(
                                     pokemon.name!,
                                     style: const TextStyle(
@@ -57,11 +62,6 @@ class PokemonCardWidget extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  const SizedBox(height: 4.0),
-                                  Row(
-                                      children: pokemon.types!.map((e) {
-                                    return Text("#${e.type.name} ");
-                                  }).toList())
                                 ],
                               ),
                             ),
