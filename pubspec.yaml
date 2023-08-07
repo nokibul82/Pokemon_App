@@ -39,7 +39,9 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
   flutter_animate: ^4.2.0+1
-
+  cached_network_image:
+  flutter_spinkit:
+  carousel_slider: ^4.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

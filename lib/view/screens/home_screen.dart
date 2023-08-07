@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -17,15 +19,22 @@ class HomeScreen extends GetView<PokemonController> {
           controller.refreshPage();
         },
         child: Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          extendBodyBehindAppBar: true,
           body: CustomScrollView(slivers: [
             SliverAppBar(
-              pinned: true,
-              title: const Text(
-                "Pokemon App",
+              backgroundColor: Colors.white.withAlpha(150),
+              elevation: 0,
+              flexibleSpace: ClipRRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 3,sigmaY: 3),
+                  child: Container(color: Colors.transparent,),
+                ),
               ),
+              pinned: true,
+              title: Text(
+                "Pokemon App",
+                  style: Theme.of(context).textTheme.displayLarge),
               centerTitle: true,
-              backgroundColor: Theme.of(context).colorScheme.primary,
             ),
             SliverPadding(
               padding: const EdgeInsets.all(8),
@@ -53,7 +62,6 @@ class HomeScreen extends GetView<PokemonController> {
               style: Theme.of(context).textTheme.displayLarge,
             ),
             centerTitle: true,
-            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -72,7 +80,7 @@ class HomeScreen extends GetView<PokemonController> {
                         return Container(
                           margin: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primaryContainer,
+                            color: Colors.grey.withAlpha(300),
                             borderRadius: BorderRadius.circular(10),
                           ),
                         )
