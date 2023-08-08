@@ -53,7 +53,7 @@ class AboutTabWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 25),
-            Text("${pokemon.weight! / 10}Kg"),
+            Text("${pokemon.weight! / 10} KG"),
           ],
         ),
         const SizedBox(height: 5),
@@ -71,7 +71,7 @@ class AboutTabWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 25),
-            Text("${pokemon.height! / 10}m"),
+            Text("${pokemon.height! / 10} m"),
           ],
         ),
         const SizedBox(height: 5),
@@ -90,7 +90,7 @@ class AboutTabWidget extends StatelessWidget {
             ),
             const SizedBox(width: 25),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: pokemon.abilities!
                     .map((e) => Text(e.ability.name))
                     .toList()),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/view/widgets/animated_progress_indicator_widget.dart';
 import '../../models/pokemon_model.dart';
 
 class StatusTabWidget extends StatelessWidget {
@@ -8,10 +9,10 @@ class StatusTabWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Height : ${pokemon.height}"),
+        AnimatedProgressIndicator(value: 0.7),
       ],
     );
   }

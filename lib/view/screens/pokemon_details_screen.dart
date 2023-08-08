@@ -98,7 +98,18 @@ class PokemonDetailsScreen extends StatelessWidget {
                         duration: const Duration(seconds: 2),
                         delay: const Duration(seconds: 2)),
                 Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(width: 3,color: Theme.of(context).colorScheme.primary)),
                   child: TabBar(
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Theme.of(context).colorScheme.primary,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                        borderRadius: BorderRadius.circular(13)),
                     tabs: detailsController.tabList,
                     controller: detailsController.tabController,
                   ),
@@ -106,12 +117,20 @@ class PokemonDetailsScreen extends StatelessWidget {
                 Container(
                   width: Get.width,
                   height: Get.height * 0.48,
-                  margin: const EdgeInsets.only(top: 40,left: 40,right: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(17)
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                   child: TabBarView(
                       controller: detailsController.tabController,
                       children: [
-                        AboutTabWidget(pokemon: pokemon,),
-                        StatusTabWidget(pokemon: pokemon,),
+                        AboutTabWidget(
+                          pokemon: pokemon,
+                        ),
+                        StatusTabWidget(
+                          pokemon: pokemon,
+                        ),
                         MovesTabWidget(pokemon: pokemon)
                       ]),
                 )
