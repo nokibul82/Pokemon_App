@@ -10,9 +10,9 @@ class StatusTabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        AnimatedProgressIndicator(value: 0.7),
+        AnimatedProgressIndicator(value: 0.7, stats: 'Speed',),
       ],
     );
   }
