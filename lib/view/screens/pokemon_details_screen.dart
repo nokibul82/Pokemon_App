@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +100,7 @@ class PokemonDetailsScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.inversePrimary,
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(20),
                       border: Border.all(width: 3,color: Theme.of(context).colorScheme.primary)),
                   child: TabBar(
                     labelColor: Colors.white,
@@ -109,7 +108,7 @@ class PokemonDetailsScreen extends StatelessWidget {
                     indicatorSize: TabBarIndicatorSize.tab,
                     indicator: BoxDecoration(
                         color: Theme.of(context).colorScheme.primary,
-                        borderRadius: BorderRadius.circular(13)),
+                        borderRadius: BorderRadius.circular(18)),
                     tabs: detailsController.tabList,
                     controller: detailsController.tabController,
                   ),

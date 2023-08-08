@@ -13,6 +13,7 @@ class StatusTabWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         AnimatedProgressIndicator(value: 0.7, stats: 'Speed',),
+        AnimatedProgressIndicator(value: 0.7, stats: 'Stamina',),
       ],
     );
   }
