@@ -9,12 +9,12 @@ class StatusTabWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        AnimatedProgressIndicator(value: 0.7, stats: 'Speed',),
-        AnimatedProgressIndicator(value: 0.7, stats: 'Stamina',),
-      ],
+      children: pokemon.stats!
+          .map((e) =>
+              AnimatedProgressIndicator(value: e.baseStat, stats: e.stat.name.toUpperCase()))
+          .toList(),
     );
   }
 }

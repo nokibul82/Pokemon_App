@@ -21,7 +21,6 @@ class PokemonDetailsScreen extends StatelessWidget {
     final detailsController = Get.put(DetailsController());
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white.withAlpha(200),
         elevation: 0,
         title: Text(
             "About ${pokemon.name![0].toUpperCase()}${pokemon.name!.substring(1)}",
@@ -99,16 +98,17 @@ class PokemonDetailsScreen extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.inversePrimary,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: 3,color: Theme.of(context).colorScheme.primary)),
+                      border: Border.all(width: 3,color: Theme.of(context).colorScheme.primary)
+                      ),
                   child: TabBar(
                     labelColor: Colors.white,
                     unselectedLabelColor: Theme.of(context).colorScheme.primary,
                     indicatorSize: TabBarIndicatorSize.tab,
                     indicator: BoxDecoration(
                         color: Theme.of(context).colorScheme.primary,
-                        borderRadius: BorderRadius.circular(18)),
+                        borderRadius: BorderRadius.circular(15)),
                     tabs: detailsController.tabList,
                     controller: detailsController.tabController,
                   ),
@@ -117,10 +117,10 @@ class PokemonDetailsScreen extends StatelessWidget {
                   width: Get.width,
                   height: Get.height * 0.48,
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(17)
-                  ),
-                  margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                      color: Theme.of(context).colorScheme.surfaceVariant,
+                      borderRadius: BorderRadius.circular(17)),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: TabBarView(
                       controller: detailsController.tabController,
                       children: [

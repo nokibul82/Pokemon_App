@@ -1,22 +1,25 @@
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AnimatedProgressIndicator extends StatelessWidget {
-  const AnimatedProgressIndicator({super.key, required this.value, required this.stats});
+  const AnimatedProgressIndicator(
+      {super.key, required this.value, required this.stats});
   final String stats;
-  final double value;
+  final int value;
 
   @override
   Widget build(BuildContext context) {
+    final width = Get.width;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10),
       child: SizedBox(
-        height: 50,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              width: 100,
+              width: width * 0.23,
               child: Text(
                 stats,
                 style: const TextStyle(
@@ -25,26 +28,21 @@ class AnimatedProgressIndicator extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              '${(value * 100).toInt()}',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
             TweenAnimationBuilder<double>(
-              tween: Tween(begin: 0, end: value), // Adjust the progress value here
+              tween: Tween(
+                  begin: 0,
+                  end: (value / 100)), // Adjust the progress value here
               duration: const Duration(seconds: 1),
               builder: (context, value, child) {
                 return Container(
-                  width: 220,
-                  height: 10,
-                  margin: const EdgeInsets.only(left: 15),
+                  width: width * 0.5,
+                  height: 11,
+                  margin: const EdgeInsets.only(left: 10),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: LinearProgressIndicator(
-                      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                      backgroundColor:
+                          Theme.of(context).colorScheme.inversePrimary,
                       valueColor: AlwaysStoppedAnimation<Color>(
                           Theme.of(context).colorScheme.primary),
                       //(pokeData.type1)
@@ -53,6 +51,18 @@ class AnimatedProgressIndicator extends StatelessWidget {
                   ),
                 );
               },
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: width * 0.04),
+              child: Countup(
+                  begin: 0,
+                  end: value.toDouble(),
+                  duration: const Duration(seconds: 1),
+                  separator: ",",
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  )),
             ),
           ],
         ),
