@@ -11,7 +11,7 @@
     </header>
     <section id="description">
         <h2>Description</h2>
-        <p>The <strong>Pokemon App</strong> is an innovative and powerful app that aims to make a beautiful ui and ux with pokeapi.</p>
+        <p>The <strong>Todo App</strong> is an app that aims to make a beautiful User Interface with pokeapi. PokeAPI is a live api that provides pokemon agents and details from a live server. </p>
     </section>
     <section id="features">
         <h2>Screentshots</h2>
